@@ -5,6 +5,6 @@
 using std::vector;
 
 vector<vector<int> > Mandelbrot(int iteration_max, int a[], int c[]);
-//vector<vector<int> > Buddhabrot(int iteration_max,int a[], int c[]);
+vector<vector<int> > Julia(int iteration_max,int a[], int c[], int b[]);
 
 #endif // MATH_H
