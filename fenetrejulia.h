@@ -1,6 +1,8 @@
 #ifndef FENETREJULIA_H
 #define FENETREJULIA_H
 
+#include <QLCDNumber>
+#include <QSlider>
 #include <QWidget>
 #include <QGraphicsScene>
 #include <QGraphicsView>
@@ -12,6 +14,8 @@
 #include <QPoint>
 #include "moninterfacegraphique.h"
 #include "math.h"
+#include <QGridLayout>
+#include <QGraphicsPixmapItem>
 
 class fenetrejulia : public QWidget
 {
@@ -22,27 +26,30 @@ public:
     QGraphicsView* getView();
     QGraphicsScene* getScene();
     QPixmap getPixmap();
+    QSlider* getSliderV();
+    QSlider* getSliderH();
+    QLCDNumber* getboxV();
+    QLCDNumber* getboxH();
 
 
 signals:
-    void click(const QPoint&);
-    void clickdrag(int,int,int,int);
 
 public slots:
-    void zoom(int, int, int, int );
-    void intermediaire(const QPoint&);
+    void changerCompteurH(int);
+    void changerCompteurV(int);
+    void change_view_selon_X(int);
+    void change_view_selon_Y(int);
 
 protected:
     QGraphicsScene *scene;
     QGraphicsView *view;
     QPixmap pixmap;
-    virtual void mousePressEvent(QMouseEvent *event);
-    virtual void mouseReleaseEvent(QMouseEvent *event);
-    int inter1;
-    int inter2;
-    int inter3;
-    int inter4;
-
+    QSlider *sliderH;
+    QSlider *sliderV;
+    QLCDNumber *BoxH;
+    QLCDNumber *BoxV;
+    int x;
+    int y;
 
 };
 

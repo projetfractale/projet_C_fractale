@@ -9,7 +9,8 @@ fenetremandelbrot::fenetremandelbrot(QWidget *parent) :
     inter4 = 0;
     setFixedSize(1100,650);
     QGraphicsScene *scene = new QGraphicsScene();
-    moninterfacegraphique *view = new moninterfacegraphique(scene,this);
+    //moninterfacegraphique *view = new moninterfacegraphique(scene,this);
+    QGraphicsView *view = new QGraphicsView(scene,this);
     QPainter *p_fractale = new QPainter(&pixmap);
     //le compteur est initialisé à 0. Il va servir à l'it_max
     int a[2];
@@ -52,8 +53,8 @@ fenetremandelbrot::fenetremandelbrot(QWidget *parent) :
     delete p_fractale;
     scene->addPixmap(pixmap);
     view->move(10,10);
-    QObject::connect(view,SIGNAL(click_view(const QPoint&)),view,SLOT(intermediaire_view(const QPoint&)));
-    QObject::connect(view,SIGNAL(clickdrag_view(int,int,int,int)),this,SLOT(zoom(int,int,int,int)));
+    QObject::connect(this,SIGNAL(click_view(const QPoint&)),view,SLOT(intermediaire_view(const QPoint&))); //Si je mets this à la place de view en premiere instance alors j'utilise la librairie classique et alors le zoom se fera sur la fentre et non sur le view
+    QObject::connect(this,SIGNAL(clickdrag_view(int,int,int,int)),this,SLOT(zoom(int,int,int,int)));
 }
 
 fenetremandelbrot::~fenetremandelbrot()

@@ -1,7 +1,7 @@
 #include "moninterfacegraphique.h"
 
 moninterfacegraphique::moninterfacegraphique(QWidget *parent) :
-    QGraphicsView(parent),
+    QGraphicsView(parent)
 {
     QObject::connect(this,SIGNAL(click_view(const QPoint&)),this,SLOT(intermediaire(const QPoint&)));
 }

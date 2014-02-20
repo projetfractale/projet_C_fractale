@@ -8,11 +8,13 @@
 #include <QPen>
 
 #include "fenetremandelbrot.h"
+#include "fenetrejulia.h"
+
 int main(int argc,char *argv[])
 {
     QApplication app(argc,argv);
 
-    fenetremandelbrot essai;
+    fenetrejulia essai;
     essai.show();
 
     return app.exec();
