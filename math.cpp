@@ -9,7 +9,7 @@ double a0=a[0]/300-2;
 double a1=-a[1]/300+2;
 double c0=c[0]/300-2;
 double c1=-c[1]/300+2; //conversion en cartesienne
-int r=c0-a0;//max(c0-a0,a1-c1)
+double r=fmax(c0-a0,a1-c1);
 double q=double(r)/1200;// valeur d'un pixel en cartesienne
 int imax=((c0-a0)/q); //prendre la partie entiere
 int jmax=((a1-c1)/q);
@@ -51,7 +51,7 @@ vector<vector<int> > Julia(int iteration_max,int a[], int c[], int b[])
     double a1=-a[1]/300+2;
     double c0=c[0]/300-2;
     double c1=-c[1]/300+2; //conversion en cartesienne
-    int r=c0-a0;//max(c0-a0,a1-c1)
+    double r=fmax(c0-a0,a1-c1);
     double q=double(r)/1200;// valeur d'un pixel en cartesienne
     int imax=((c0-a0)/q); //prendre la partie entiere
     int jmax=((a1-c1)/q);
@@ -64,8 +64,8 @@ vector<vector<int> > Julia(int iteration_max,int a[], int c[], int b[])
      {
          for (int j=0; j<=jmax; j++)
          {
-             double x = ((double)i)*q;
-             double y = -((double)j)*q;
+             double x = a0+((double)i)*q;
+             double y = a1-((double)j)*q;
              double d=0;
              int h=0;
              while (h<iteration_max && x*x+y*y<4)
