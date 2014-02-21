@@ -9,12 +9,13 @@
 
 #include "fenetremandelbrot.h"
 #include "fenetrejulia.h"
+#include "fenetrebuddha.h"
 
 int main(int argc,char *argv[])
 {
     QApplication app(argc,argv);
 
-    fenetrejulia essai;
+    fenetrebuddha essai;
     essai.show();
 
     return app.exec();

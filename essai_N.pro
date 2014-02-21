@@ -5,10 +5,12 @@ SOURCES += \
     fenetremandelbrot.cpp \
     math.cpp \
     moninterfacegraphique.cpp \
-    fenetrejulia.cpp
+    fenetrejulia.cpp \
+    fenetrebuddha.cpp
 
 HEADERS += \
     fenetremandelbrot.h \
     math.h \
     moninterfacegraphique.h \
-    fenetrejulia.h
+    fenetrejulia.h \
+    fenetrebuddha.h
