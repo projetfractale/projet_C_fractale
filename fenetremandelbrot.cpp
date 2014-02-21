@@ -9,8 +9,7 @@ fenetremandelbrot::fenetremandelbrot(QWidget *parent) :
     inter4 = 0;
     setFixedSize(1100,650);
     QGraphicsScene *scene = new QGraphicsScene();
-    //moninterfacegraphique *view = new moninterfacegraphique(scene,this);
-    QGraphicsView *view = new QGraphicsView(scene,this);
+    moninterfacegraphique *view = new moninterfacegraphique(scene,this);
     QPainter *p_fractale = new QPainter(&pixmap);
     //le compteur est initialisé à 0. Il va servir à l'it_max
     int a[2];
@@ -53,8 +52,8 @@ fenetremandelbrot::fenetremandelbrot(QWidget *parent) :
     delete p_fractale;
     scene->addPixmap(pixmap);
     view->move(10,10);
-    QObject::connect(this,SIGNAL(click_view(const QPoint&)),view,SLOT(intermediaire_view(const QPoint&))); //Si je mets this à la place de view en premiere instance alors j'utilise la librairie classique et alors le zoom se fera sur la fentre et non sur le view
-    QObject::connect(this,SIGNAL(clickdrag_view(int,int,int,int)),this,SLOT(zoom(int,int,int,int)));
+    QObject::connect(view,SIGNAL(click_view(const QPoint&)),view,SLOT(intermediaire_view(const QPoint&))); //Si je mets this à la place de view en premiere instance alors j'utilise la librairie classique et alors le zoom se fera sur la fentre et non sur le view
+    QObject::connect(view,SIGNAL(clickdrag_view(int,int,int,int)),this,SLOT(zoom(int,int,int,int)));
 }
 
 fenetremandelbrot::~fenetremandelbrot()
@@ -73,7 +72,7 @@ QGraphicsScene* fenetremandelbrot::getScene()
     return scene;
 }
 
-QGraphicsView* fenetremandelbrot::getView()
+moninterfacegraphique* fenetremandelbrot::getView()
 {
     return view;
 }
@@ -122,23 +121,4 @@ void fenetremandelbrot::zoom(int a0,int a1,int c0,int c1)
     delete p_fractale_zoom;
 }
 
-void fenetremandelbrot::mousePressEvent(QMouseEvent *event)
-{
-    const QPoint p = event->pos();
-    emit click(p);
-}
 
-void fenetremandelbrot::mouseReleaseEvent(QMouseEvent *event)
-{
-    const QPoint p = event->pos();
-    inter3 = p.x();
-    inter4 = p.y();
-    emit clickdrag(inter1,inter2,inter3,inter4);
-
-}
-
-void fenetremandelbrot::intermediaire(const QPoint &cible)
-{
-    inter1 = cible.x();
-    inter2 = cible.y();
-}

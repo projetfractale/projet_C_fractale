@@ -19,25 +19,22 @@ class fenetremandelbrot : public QWidget
 public:
     explicit fenetremandelbrot(QWidget *parent = 0);
     ~fenetremandelbrot();
-    QGraphicsView* getView();
+    moninterfacegraphique* getView();
     QGraphicsScene* getScene();
     QPixmap getPixmap();
 
 
 signals:
-    void click(const QPoint&);
-    void clickdrag(int,int,int,int);
+
 
 public slots:
     void zoom(int, int, int, int );
-    void intermediaire(const QPoint&);
+
 
 protected:
     QGraphicsScene *scene;
-    QGraphicsView *view;
+    moninterfacegraphique *view;
     QPixmap pixmap;
-    virtual void mousePressEvent(QMouseEvent *event);
-    virtual void mouseReleaseEvent(QMouseEvent *event);
     int inter1;
     int inter2;
     int inter3;

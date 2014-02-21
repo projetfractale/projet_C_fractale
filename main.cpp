@@ -15,7 +15,7 @@ int main(int argc,char *argv[])
 {
     QApplication app(argc,argv);
 
-    fenetrebuddha essai;
+    fenetremandelbrot essai;
     essai.show();
 
     return app.exec();
