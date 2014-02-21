@@ -85,15 +85,6 @@ fenetrejulia::fenetrejulia(QWidget *parent) :
     QObject::connect(sliderV,SIGNAL(valueChanged(int)),this,SLOT(change_view_selon_Y(int)));
 }
 
-fenetrejulia::~fenetrejulia()
-{
-    delete view;
-    delete scene;
-    delete sliderH;
-    delete sliderV;
-    delete BoxH;
-    delete BoxV;
-}
 
 QPixmap fenetrejulia::getPixmap()
 {

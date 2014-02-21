@@ -56,11 +56,6 @@ fenetremandelbrot::fenetremandelbrot(QWidget *parent) :
     QObject::connect(view,SIGNAL(clickdrag_view(int,int,int,int)),this,SLOT(zoom(int,int,int,int)));
 }
 
-fenetremandelbrot::~fenetremandelbrot()
-{
-    delete view;
-    delete scene;
-}
 
 QPixmap fenetremandelbrot::getPixmap()
 {

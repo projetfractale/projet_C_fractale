@@ -18,7 +18,7 @@ class fenetremandelbrot : public QWidget
     Q_OBJECT
 public:
     explicit fenetremandelbrot(QWidget *parent = 0);
-    ~fenetremandelbrot();
+
     moninterfacegraphique* getView();
     QGraphicsScene* getScene();
     QPixmap getPixmap();

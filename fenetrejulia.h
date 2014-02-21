@@ -22,7 +22,6 @@ class fenetrejulia : public QWidget
     Q_OBJECT
 public:
     explicit fenetrejulia(QWidget *parent = 0);
-    ~fenetrejulia();
     QGraphicsView* getView();
     QGraphicsScene* getScene();
     QPixmap getPixmap();
